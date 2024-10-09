@@ -1,0 +1,425 @@
+/* ШРИФТЫ, КОНЕЦ НА 68 СТРОКЕ */
+
+@font-face {
+    font-family: 'SF Pro Text';
+    src: url('./fonts/SFProText-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('./fonts/SFProDisplay-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('./fonts/SFProDisplay-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF UI Display';
+    src: url('./fonts/SFUIDisplay-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF UI Display';
+    src: url('./fonts/SFUIDisplay-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+.a {
+    font-family: 'SF Pro Text';
+    font-weight: 400;
+}
+
+.b {
+    font-family: 'SF Pro Display';
+    font-weight: 400;
+}
+
+.c {
+    font-family: 'SF Pro Display';
+    font-weight: 700;
+}
+
+.d {
+    font-family: 'SF UI Display';
+    font-weight: 400;
+}
+
+.e {
+    font-family: 'SF UI Display';
+    font-weight: 700;
+}
+
+/* КОНЕЦ ШРИФТОВ */
+
+/* НОРМАЛИЗАЦИЯ СТИЛЕЙ, КОНЕЦ 226 СТРОКА */
+
+/**
+  Нормализация блочной модели
+ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/**
+   Убираем внутренние отступы слева тегам списков,
+   у которых есть атрибут class
+  */
+:where(ul, ol):where([class]) {
+    padding-left: 0;
+}
+
+/**
+   Убираем внешние отступы body и двум другим тегам,
+   у которых есть атрибут class
+  */
+body,
+:where(blockquote, figure):where([class]) {
+    margin: 0;
+}
+
+/**
+   Убираем внешние отступы вертикали нужным тегам,
+   у которых есть атрибут class
+  */
+:where(h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    ul,
+    ol,
+    dl):where([class]) {
+    margin-block: 0;
+}
+
+:where(dd[class]) {
+    margin-left: 0;
+}
+
+:where(fieldset[class]) {
+    margin-left: 0;
+    padding: 0;
+    border: none;
+}
+
+/**
+   Убираем стандартный маркер маркированному списку,
+   у которого есть атрибут class
+  */
+:where(ul[class]) {
+    list-style: none;
+}
+
+/**
+   Обнуляем вертикальные внешние отступы параграфа,
+   объявляем локальную переменную для внешнего отступа вниз,
+   чтобы избежать взаимодействие с более сложным селектором
+  */
+p {
+    --paragraphMarginBottom: 24px;
+
+    margin-block: 0;
+}
+
+/**
+   Внешний отступ вниз для параграфа без атрибута class,
+   который расположен не последним среди своих соседних элементов
+  */
+p:where(:not([class]):not(:last-child)) {
+    margin-bottom: var(--paragraphMarginBottom);
+}
+
+
+/**
+   Упрощаем работу с изображениями
+  */
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/**
+   Наследуем свойства шрифт для полей ввода
+  */
+input,
+textarea,
+select,
+button {
+    font: inherit;
+}
+
+html {
+    /**
+     Пригодится в большинстве ситуаций
+     (когда, например, нужно будет "прижать" футер к низу сайта)
+    */
+    height: 100%;
+    /**
+     Плавный скролл
+    */
+    scroll-behavior: smooth;
+}
+
+body {
+    /**
+     Пригодится в большинстве ситуаций
+     (когда, например, нужно будет "прижать" футер к низу сайта)
+    */
+    min-height: 100%;
+    /**
+     Унифицированный интерлиньяж
+    */
+    line-height: 1.5;
+}
+
+/**
+   Приводим к единому цвету svg-элементы
+  */
+svg *[fill] {
+    fill: currentColor
+}
+
+svg *[stroke] {
+    stroke: currentColor
+}
+
+/**
+   Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+  */
+svg * {
+    transition-property: fill, stroke;
+}
+
+/**
+   Удаляем все анимации и переходы для людей,
+   которые предпочитают их не использовать
+  */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* КОНЕЦ НОРМАЛИЗАЦИИ СТИЛЕЙ */
+
+main {
+    margin-top: 40px;
+    font-size: 14px;
+    font-family: "SF UI Display";
+}
+
+.container-1 {
+    max-width: 1000px;
+    margin-inline: auto;
+    padding-inline: 40px;
+}
+
+.container-2 {
+    max-width: 1000px;
+    margin-inline: auto;
+    padding-inline: 10px;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav__list {
+    display: flex;
+    column-gap: 22px;
+}
+
+.nav__input {
+    text-align: center;
+}
+
+.user {
+    margin-top: 75px;
+    display: flex;
+    column-gap: 100px;
+}
+
+.account {
+    max-width: 300px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.account__about {
+    display: flex;
+    column-gap: 20px;
+}
+
+.account__nickname {
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.account__button {
+    width: 90px;
+    height: 30px;
+    background-color: #0095F6;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition-duration: 0.3s;
+    border: 2px solid black;
+}
+
+.account__button:hover {
+    background-color: gray;
+}
+
+.account__button-active {
+    width: 90px;
+    height: 30px;
+    background-color: grey;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition-duration: 0.3s;
+    border: 2px solid black;
+}
+
+
+.account__numbers {
+    display: flex;
+    column-gap: 20px;
+}
+
+.account__real-name {
+    font-size: 16px;
+}
+
+.stories {
+    margin-top: 70px;
+    display: flex;
+    column-gap: 80px;
+}
+
+.stories__item {
+    cursor: pointer;
+    opacity: 1;
+    transition-duration: 0.5s;
+}
+
+.stories__item:hover {
+    opacity: 0.5;
+}
+
+.stories__item-text {
+    font-size: 16px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.posts {
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 1px solid #DBDBDB;
+}
+
+.tab {
+    display: flex;
+    justify-content: center;
+    column-gap: 10px;
+}
+
+.gallery {
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 30px;
+    row-gap: 30px;
+}
+
+.gallery__item {
+    opacity: 1.0;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.gallery__item:hover {
+    opacity: 0.5;
+}
+
+.footer {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+}
+
+.footer__copyright {
+    display: flex;
+    column-gap: 12px;
+}
+
+.footer__link {
+    text-decoration: none;
+    opacity: 0.5;
+    transition-duration: 0.5s;
+}
+
+.footer__link:hover {
+    opacity: 1;
+}
+
+.footer__info {
+    display: flex;
+    column-gap: 20px;
+}
+
+.footer__text {
+    opacity: 0.5;
+}
+
+.modal {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    width: 70vh;
+    height: 70vh;
+    top: 15%;
+    border: 5px solid black;
+    opacity: 1;
+}
+
+.modal:hover {
+    opacity: 1;
+}
+
+.no-scroll {
+    overflow: hidden;
+}
