@@ -255,6 +255,7 @@ main {
 
 .nav__input {
     text-align: center;
+    border: 1px solid black;
 }
 
 .user {
@@ -406,24 +407,6 @@ main {
     opacity: 0.5;
 }
 
-/* .modal {
-    display: block;
-    position: fixed;
-    z-index: 1;
-    width: 70vh;
-    height: 70vh;
-    top: 15%;
-    border: 5px solid black;
-    opacity: 1;
-}
-
-.modal:hover {
-    opacity: 1;
-}
-
-.no-scroll {
-    overflow: hidden;
-} */
 
 .visually-hidden {
     visibility: hidden;
@@ -475,4 +458,11 @@ main {
 
 .back:hover {
     opacity: 0.5;
+}
+
+@media (max-width: 920px) {
+    .stories {
+        flex-wrap: wrap;
+        row-gap: 10px;
+    }
 }

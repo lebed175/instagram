@@ -15,7 +15,6 @@ function showPictures() {
 
 showPictures()
 
-
 // Клик по фотографии (посту)
 for (let element of arrayOfPictures) {
     element.onclick = function (click) {
@@ -29,18 +28,29 @@ for (let element of arrayOfPictures) {
     }
 }
 
-document.querySelector('.back').onclick = function(click) {
+document.querySelector('.modal').onclick = function (click) {
+    if (click.target.classList.contains('modal') && !click.target.classList.contains('modal-content')) {
+        document.querySelector('.modal').classList.add('visually-hidden')
+        document.querySelector('.modal-content').firstChild.classList.remove('try')
+
+        if (document.querySelector('.modal').classList.contains('visually-hidden')) {
+            document.getElementById('body').style.overflow = 'visible'
+        }
+
+        showPictures()
+    }
+}
+
+document.querySelector('.back').onclick = function (click) {
     document.querySelector('.modal').classList.add('visually-hidden')
     document.querySelector('.modal-content').firstChild.classList.remove('try')
 
     if (document.querySelector('.modal').classList.contains('visually-hidden')) {
         document.getElementById('body').style.overflow = 'visible'
     }
-    
+
     showPictures()
 }
-
-
 
 //Кнопка FOLLOW
 document.querySelector('.account__button').onclick = function () {
